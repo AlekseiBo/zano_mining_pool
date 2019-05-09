@@ -1,0 +1,16 @@
+{
+  "name": "zano-pool",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "author": "",
+  "license": "",
+  "dependencies": {
+    "bignum": "^0.13.0",
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.4",
+    "express": "^4.16.4",
+    "ioredis": "^4.9.3",
+    "zano-util": "git+https://github.com/hyle-team/zano-node-util.git"
+  }
+}
