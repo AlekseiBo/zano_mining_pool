@@ -1,0 +1,27 @@
+{
+    "item1": {
+      "label": "Stratum IP",
+      "text": "195.201.56.164"
+    },
+    "item2": {
+      "label": "Stratum Port",
+      "text": "6000"
+    },
+    "item3": {
+      "label": "Miner Diff",
+      "text": "automatic"
+    },
+    "item4": {
+      "label": "Workers",
+      "text": "set in password"
+    },
+    "item5": {
+      "label": "Account",
+      "text": "address or alias"
+    },
+    "item6": {
+      "label": "Scratchpad",
+      "link_name": "link",
+      "link_url": "http://195.201.56.164:3000/scratchpad"
+    }
+  }

@@ -1,0 +1,66 @@
+{
+    "daemon": {
+        "host": "localhost",
+        "port": 11211
+    },
+
+    "wallet": {
+        "host": "localhost",
+        "port": 11222
+    },
+
+    "scratchpad" : {
+       "path" : "/Users/AlexBo/Development/BBR/boolberry/scratchpad.bin",
+       "storeInterval" : 14400000
+    },
+
+    "server" : {
+        "remote" : false,
+        "api" : 3000,
+        "port" : 6000,
+        "difficulty" : 1250000
+    },
+
+    "share" : {
+        "targetTime" : 60000,
+        "targetTimeSpan" : 30000,
+        "timeout" : 600000,
+        "weight" : 240000
+    },
+
+    "block": {
+        "unlockDepth": 5,
+        "unlockInterval": 30000
+    },
+
+    "logger": {
+        "size": 1000
+    },
+
+    "stats": {
+        "history": 500000,
+        "interval": 10000,
+        "frame": 600000
+    },
+
+    "ban": {
+        "time": 600000,
+        "percent": 5,
+        "checkpoint": 50
+    },
+
+    "payment": {
+        "sweep": 10000000000000,
+        "units": 1000000000000,
+        "mixin": 0,
+        "fee": 2000000000,
+        "threshold": 1000000000000,
+        "denomination": 100000000000,
+        "interval" : 60000
+    },
+
+    "address" : "ZxCkej3kAWUeH9mGAxkWVGMRAiWrsEqj3aoVp4MsAvn5Zaxv9jGqWFJfxW9CG431JWYcULZojP4RNLM1xsCJLU7o1y36SH8kR",
+    "refreshBlockInterval" : 1000,
+    "fee" : 0 
+
+}

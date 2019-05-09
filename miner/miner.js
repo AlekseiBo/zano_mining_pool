@@ -112,11 +112,7 @@ class Miner {
             '0x' + heightBuffer.toString('hex'),
         ];
 
-        let reply = {
-            id: this.id,
-            params: this.cachedJob,
-            status: 'OK'
-        }
+        let reply = this.cachedJob
 
         return reply;
     }
