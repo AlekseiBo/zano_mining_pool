@@ -89,7 +89,7 @@ function startPoolServer() {
                         break;
                     }
                     logger.log('Server received', jsonData.method, 'message from', address);
-                    logger.log('Data:', jSON.stringify(jsonData));
+                    logger.log('Data:', JSON.stringify(jsonData));
                     handleMessage(socket, jsonData, pushMessage);
                 }
                 dataBuffer = incomplete;
