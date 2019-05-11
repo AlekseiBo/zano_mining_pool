@@ -23,11 +23,7 @@ class BlockTemplate {
         this.difficulty = template.difficulty;
         this.height = template.height;
         this.seed = template.seed;
-        this.reserveOffset = template.reserved_offset;
-        this.buffer = Buffer.from(this.blob, 'hex');
-        instanceId.copy(this.buffer, this.reserveOffset + 4, 0, 3);
-        this.previousBlockHash = Buffer.alloc(32);
-        this.buffer.copy(this.previousBlockHash, 0, 7, 39);
+        this.previousBlockHash = template.prev_hash;
         this.extraNonce = 0;
     }
 
