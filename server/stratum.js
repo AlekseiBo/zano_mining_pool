@@ -24,6 +24,7 @@ function startPoolServer() {
                 return;
             }
             var sendData = JSON.stringify({
+                id: jsonData.id,
                 jsonrpc: "2.0",
                 error: error ? { code: -1, message: error } : null,
                 result: result
