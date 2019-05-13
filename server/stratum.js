@@ -24,11 +24,11 @@ function startPoolServer() {
                 return;
             }
             var sendData = JSON.stringify({
-                id: jsonData.id,
                 jsonrpc: "2.0",
                 error: error ? { code: -1, message: error } : null,
                 result: result
             }) + "\n";
+            logger.debug('Sending data:', sendData);
             socket.write(sendData);
         };
         let address = socket.remoteAddress.split(':').pop();
