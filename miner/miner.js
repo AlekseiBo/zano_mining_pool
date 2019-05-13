@@ -71,7 +71,7 @@ class Miner {
                     if (share.validate(miner, params, worker, reply)) {
                         reply(null, { status: 'OK' });
                         if (doRetarget) {
-                            share.retarget(miner, params.job_id);
+                            //share.retarget(miner, params.job_id);
                         }
                     }
                 } else {
@@ -94,7 +94,6 @@ class Miner {
 
         var newJob = {
             id: uid(),
-            extraNonce: currentTemplate.extraNonce,
             height: currentTemplate.height,
             difficulty: this.difficulty,
             submissions: [],
