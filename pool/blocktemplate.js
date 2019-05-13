@@ -23,6 +23,7 @@ class BlockTemplate {
         this.difficulty = template.difficulty;
         this.height = template.height;
         this.seed = template.seed;
+        this.buffer = Buffer.from(this.blob, 'hex');
         this.previousBlockHash = template.prev_hash;
         this.extraNonce = 0;
     }
@@ -82,8 +83,7 @@ class BlockTemplate {
     }
 
     nextBlob() {
-        this.buffer.writeUInt32BE(++this.extraNonce, this.reserveOffset);
-        return '0x' + crUtil.convert_blob(this.buffer).toString('hex');
+        return '0x' + crUtil.get_hash_from_block_template_with_extra(this.buffer, ++this.extraNonce);
     }
 }
 
