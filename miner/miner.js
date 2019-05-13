@@ -53,7 +53,7 @@ class Miner {
                     var miner = new Miner(id, params[0], worker, address, difficulty, message);
                     connectedMiners[id] = miner;
                     logger.log('Miner logged in', miner.address, ':', miner.account);
-                    reply(null, miner.getJob());
+                    reply(null, true);
                 }
                 break;
             case 'eth_getwork':
@@ -61,6 +61,7 @@ class Miner {
                 if (miner) {
                     reply(null, miner.getJob());
                 } else {
+                    logger.debug('Unauthenticated');
                     reply('Unauthenticated');
                 }
                 break;
