@@ -32,7 +32,7 @@ function startPoolServer() {
             socket.write(sendData);
         };
         let address = socket.remoteAddress.split(':').pop();
-        Miner.executeMethod(jsonData.method, jsonData.params, address, sendReply, pushMessage);
+        Miner.executeMethod(jsonData.method, jsonData.params, jsonData.worker, address, sendReply, pushMessage);
     };
 
     var httpResponse = ' 200 OK\nContent-Type: text/plain\nContent-Length: 20\n\nmining server online';

@@ -14,7 +14,7 @@ async function login(params, reply) {
         return false;
     }
 
-    let login = params.login;
+    let login = params[0];
     if (!login) {
         logger.debug('missing login');
         reply('missing login');

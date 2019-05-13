@@ -37,7 +37,7 @@ class Miner {
         return Object.keys(connectedMiners).length;
     }
 
-    static async executeMethod(method, params, address, reply, message) {
+    static async executeMethod(method, params, worker, address, reply, message) {
         if (checkBan(address)) {
             logger.log('Banned IP', address);
             reply('your IP is banned');
@@ -46,11 +46,11 @@ class Miner {
 
         switch (method) {
             case 'eth_submitLogin':
-                let loggedIn = await login(params, reply);
+                let loggedIn = await login(params, worker, reply);
                 if (loggedIn) {
                     let difficulty = config.pool.server.difficulty;
                     let id = uid();
-                    var miner = new Miner(id, params.login, params.pass, address, difficulty, message);
+                    var miner = new Miner(id, params.login, worker, address, difficulty, message);
                     connectedMiners[id] = miner;
                     logger.log('Miner logged in', miner.address, ':', miner.account);
                     reply(null, miner.getJob());
@@ -67,7 +67,7 @@ class Miner {
             case 'eth_submitwork':
                 var miner = connectedMiners[params.id];
                 if (miner) {
-                    if (share.validate(miner, params, reply)) {
+                    if (share.validate(miner, params, worker, reply)) {
                         reply(null, { status: 'OK' });
                         if (doRetarget) {
                             share.retarget(miner, params.job_id);
