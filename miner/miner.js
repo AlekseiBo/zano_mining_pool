@@ -56,7 +56,7 @@ class Miner {
                     reply(null, true);
                 }
                 break;
-            case 'eth_getwork':
+            case 'eth_getWork':
                 var miner = connectedMiners[params.id];
                 if (miner) {
                     reply(null, miner.getJob());
