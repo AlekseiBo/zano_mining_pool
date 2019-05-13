@@ -23,14 +23,19 @@ function startPoolServer() {
                 logger.log('Socket is not writable');
                 return;
             }
-            var sendData = JSON.stringify({
+
+            let sendData = {
                 id: jsonData.id,
                 jsonrpc: "2.0",
-                error: error ? { code: -1, message: error } : null,
                 result: result
-            }) + "\n";
-            logger.debug('Sending data:', sendData);
-            socket.write(sendData);
+            }
+
+            if (error) {
+                sendData.error = { code: -1, message: error };
+            }
+
+            logger.debug('Sending data:', JSON.stringify(sendData));
+            socket.write(JSON.stringify(sendData) + "\n");
         };
         let address = socket.remoteAddress.split(':').pop();
         Miner.executeMethod(jsonData.method, jsonData.params, jsonData.worker, address, sendReply, pushMessage);
