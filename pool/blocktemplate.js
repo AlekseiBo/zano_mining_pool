@@ -25,7 +25,6 @@ class BlockTemplate {
         this.seed = template.seed;
         this.buffer = Buffer.from(this.blob, 'hex');
         this.previousBlockHash = template.prev_hash;
-        this.extraNonce = 0;
     }
 
     static notifier() {
@@ -83,7 +82,8 @@ class BlockTemplate {
     }
 
     nextBlob() {
-        return '0x' + crUtil.get_hash_from_block_template_with_extra(this.buffer, ++this.extraNonce);
+        let extraNonce = crypto.pseudoRandomBytes(8);
+        return '0x' + crUtil.get_hash_from_block_template_with_extra(this.buffer, extraNonce).toString('hex');
     }
 }
 
